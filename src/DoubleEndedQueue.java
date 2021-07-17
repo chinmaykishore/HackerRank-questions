@@ -21,32 +21,38 @@ The maximum amount of unique numbers among all possible contiguous subarrays is 
 import java.util.*;
 public class DoubleEndedQueue {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        Deque deque = new ArrayDeque<>();
-        List<Integer> list = new ArrayList<>();
+        //Scanner in = new Scanner(System.in);
+        //int n = in.nextInt();
+        int m =3;// in.nextInt();
+        int[] arr = {5,3,5,2,2,2};
+        //int[] arr = {5,5,2,2,2,5};
         /*
-        int n = in.nextInt();
-        int m = in.nextInt();
-
         for (int i = 0; i < n; i++) {
             int num = in.nextInt();
-            list.add(num);
-        }*/
-        list.add(5);
-        list.add(3);
-        list.add(5);
-        list.add(2);
-        list.add(2);
-        list.add(2);
 
-        int mostUniqueInAllSubArray  = calculateMostUniqueInAllSubArray(list);
+        }*/
+        int mostUniqueInAllSubArray  = calculateMostUniqueInAllSubArray(arr,m);
         System.out.println(mostUniqueInAllSubArray);
     }
-    public static int calculateMostUniqueInAllSubArray(List<Integer> list){
+    public static int calculateMostUniqueInAllSubArray(int[] arr,int m){
 
-        for(int i=0;i<list.size();i++){
-
+        Deque<Integer> deque = new ArrayDeque<>();
+        HashSet<Integer> hs = new HashSet<>();
+        int first;
+        int maxunique=0;
+        for(int i=0;i<arr.length;i++){
+            int ele = arr[i];
+            deque.addLast(ele);
+            hs.add(ele);
+            if(deque.size()== m){
+                if(hs.size() > maxunique)
+                    maxunique = hs.size();
+                first = deque.removeFirst();
+                System.out.println("first="+first);
+                if(!deque.contains(first))
+                    hs.remove(first);
+            }
         }
-        return 1;
+        return maxunique;
     }
 }
