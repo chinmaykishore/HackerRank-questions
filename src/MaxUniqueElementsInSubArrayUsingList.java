@@ -18,8 +18,10 @@ In these subarrays, there are 2,3,2,1 unique numbers, respectively.
 The maximum amount of unique numbers among all possible contiguous subarrays is 3.
 
  */
+
 import java.util.*;
-public class DoubleEndedQueue {
+
+public class MaxUniqueElementsInSubArrayUsingList {
     public static void main(String[] args) {
         //Scanner in = new Scanner(System.in);
         //int n = in.nextInt();
@@ -36,20 +38,21 @@ public class DoubleEndedQueue {
     }
     public static int calculateMostUniqueInAllSubArray(int[] arr,int m){
 
-        Deque<Integer> deque = new ArrayDeque<>();
+        List<Integer> list = new ArrayList<>();
         HashSet<Integer> hs = new HashSet<>();
         int first;
         int maxunique=0;
         for(int i=0;i<arr.length;i++){
             int ele = arr[i];
-            deque.addLast(ele);
+            list.add(ele);
             hs.add(ele);
-            if(deque.size()== m){
+            if(list.size()== m){
                 if(hs.size() > maxunique)
                     maxunique = hs.size();
-                first = deque.removeFirst();
+                first = list.get(0);
+                list.remove(0);
                 System.out.println("first="+first);
-                if(!deque.contains(first))
+                if(!list.contains(first))
                     hs.remove(first);
             }
         }
