@@ -1,4 +1,17 @@
 /*
+You have to travel to different villages to make some profit
+In each village, you gain some profit. But the catch is, from a particular village i, you can only move to a village j
+if and only if i < j and the profit gain from village j is a multiple of the profit gain from village
+You have to tell the maximum profit you can gain while traveling.
+
+Input format
+The first line contains a single integer N denoting the total number of villages.
+The second line contains N space-separated integers, each denoting the profit gain
+Output format
+Print the maximum profit you can gain
+ */
+
+/*
 Input
 6
 1 2 3 4 9 8
