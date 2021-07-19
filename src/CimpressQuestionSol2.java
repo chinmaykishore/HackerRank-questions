@@ -50,15 +50,15 @@ Input
 4
 2 3 6 9
 Output
-12
+9
 Expected Correct Output
 12
  */
 
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
-class SimpressQuestionSol3 {
+class CimpressQuestionSol2 {
     public static void main(String args[] ) throws Exception {
         //Scanner
         Scanner s = new Scanner(System.in);
@@ -98,7 +98,7 @@ class SimpressQuestionSol3 {
 
                 prevEleAndSum.put(arr[i],newSum);
                 //System.out.println("inserted= "+arr[i]+","+newSum);
-                //prevEleAndSum.remove(maxfoundKey);
+                prevEleAndSum.remove(maxfoundKey);
                 //System.out.println("removed= "+maxfoundKey+","+oldsum);
 
                 if(newSum>maxprof)

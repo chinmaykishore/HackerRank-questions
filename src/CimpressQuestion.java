@@ -46,7 +46,7 @@ Expected Correct Output
 
 import java.util.*;
 import java.io.*;
-public class SimpressQuestion {
+public class CimpressQuestion {
         public static void main(String args[] ) throws Exception {
             //Scanner
             Scanner s = new Scanner(System.in);
