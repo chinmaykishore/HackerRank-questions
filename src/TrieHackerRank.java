@@ -57,20 +57,6 @@ public class TrieHackerRank {
     }
 }
 
-
-class TrieNode {
-    private HashMap<Character, TrieNode> children = new HashMap();
-    public int size = 0; // this was the main trick to decrease runtime to pass tests.
-
-    public void putChildIfAbsent(char ch) {
-        children.putIfAbsent(ch, new TrieNode());
-    }
-
-    public TrieNode getChild(char ch) {
-        return children.get(ch);
-    }
-}
-
 class Trie {
     TrieNode root = new TrieNode();
 
@@ -94,3 +80,31 @@ class Trie {
         return curr.size;
     }
 }
+
+class TrieNode {
+    private HashMap<Character, TrieNode> children = new HashMap();
+    public int size = 0; // this was the main trick to decrease runtime to pass tests.
+
+    public void putChildIfAbsent(char ch) {
+        children.putIfAbsent(ch, new TrieNode());
+    }
+
+    public TrieNode getChild(char ch) {
+        return children.get(ch);
+    }
+}
+
+/*
+ed,eddie,edward,edwina
+
+        e size = 4
+        d (s=4)
+        d(s=1)     w(s=2)
+        d(s=1)     a(s=1)    i(s=1)
+        i(s=1)     r(s=1)    n(s=1)
+        e(s=1)     d(s=1)    a(s=1)
+
+
+
+ */
+
